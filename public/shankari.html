@@ -133,57 +133,90 @@ section{padding:clamp(5rem,10vw,9rem) clamp(1rem,4vw,3rem)}
 .sec-title{font-family:var(--f-display);font-weight:400;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1.05;letter-spacing:-.02em;max-width:22ch}
 .sec-title .it{font-style:italic;color:var(--terracotta)}
 
-/* ============= SERVICES ============= */
-.services{background:var(--paper)}
-.svc-group{max-width:1200px;margin:0 auto 3rem;display:grid;grid-template-columns:240px 1fr;gap:3rem;padding-top:3rem;border-top:1px solid var(--line)}
-.svc-group h3{font-family:var(--f-display);font-weight:400;font-size:1.5rem;color:var(--teal);font-style:italic}
-.svc-group h3 small{display:block;font-family:var(--f-body);font-style:normal;font-size:.72rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.6rem}
-.svc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line)}
-.svc{background:var(--paper);padding:1.75rem 1.5rem;position:relative;overflow:hidden;transition:background .5s var(--ease);cursor:pointer}
-.svc:hover{background:var(--ink);color:var(--ivory)}
-.svc .num{font-size:.7rem;color:var(--muted);letter-spacing:.1em;transition:color .5s}
-.svc:hover .num{color:rgba(244,237,226,.5)}
-.svc h4{font-family:var(--f-display);font-weight:500;font-size:1.25rem;margin-top:1.5rem;letter-spacing:-.01em;line-height:1.2}
-.svc .arr{position:absolute;top:1.5rem;right:1.5rem;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:transparent;transition:background .5s, transform .5s var(--ease)}
-.svc:hover .arr{background:var(--terracotta);transform:rotate(-45deg)}
-.svc .arr svg{stroke:currentColor}
-@media(max-width:780px){.svc-group{grid-template-columns:1fr;gap:1.5rem}}
+/* ============= SERVICES — editorial index ============= */
+.services{background:var(--paper);position:relative}
+.svc-shell{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.svc-cats{position:sticky;top:6rem;display:flex;flex-direction:column;gap:.25rem;border-top:1px solid var(--line);padding-top:1.5rem}
+.svc-cat{display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid var(--line);cursor:pointer;text-align:left;transition:color .4s var(--ease)}
+.svc-cat .ix{font-size:.7rem;letter-spacing:.2em;color:var(--muted);font-variant-numeric:tabular-nums}
+.svc-cat .nm{font-family:var(--f-display);font-size:1.55rem;font-weight:400;letter-spacing:-.015em;line-height:1.1;color:var(--ink);transition:color .4s, transform .4s var(--ease)}
+.svc-cat .ct{font-size:.72rem;letter-spacing:.1em;color:var(--muted);font-variant-numeric:tabular-nums}
+.svc-cat:hover .nm{color:var(--terracotta)}
+.svc-cat.active .nm{font-style:italic;color:var(--terracotta);transform:translateX(8px)}
+.svc-cat.active .ix{color:var(--terracotta)}
 
-/* ============= SIGNATURE SCROLL SECTION ============= */
-.signature{background:var(--ivory);position:relative}
-.sig-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.sig-stage{position:relative;width:100%;max-width:1200px;padding:0 clamp(1rem,4vw,3rem);height:100%;display:flex;align-items:center}
-.sig-eyebrow{position:absolute;top:6rem;left:50%;transform:translateX(-50%);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
-.sig-progress{position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);width:200px;height:1px;background:var(--line)}
-.sig-progress .bar{height:100%;background:var(--ink);width:0;transition:width .1s linear}
+.svc-panel{position:relative;min-height:520px}
+.svc-stage{position:relative}
+.svc-pane{position:absolute;inset:0;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .55s var(--ease), transform .55s var(--ease)}
+.svc-pane.active{opacity:1;transform:none;pointer-events:auto;position:relative}
+.svc-pane .lead{display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;padding-bottom:2rem;border-bottom:1px solid var(--line);margin-bottom:.5rem}
+.svc-pane .tagline{font-family:var(--f-display);font-style:italic;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.1;color:var(--teal);max-width:18ch;letter-spacing:-.01em}
+.svc-pane .glyph{font-family:var(--f-kn);font-size:clamp(3rem,6vw,5rem);color:var(--terracotta);opacity:.8;line-height:1}
 
-.sig-side{position:absolute;top:50%;width:42%;transform:translateY(-50%);transition:opacity .8s var(--ease), transform .8s var(--ease)}
-.sig-side.left{left:clamp(1rem,4vw,3rem)}
-.sig-side.right{right:clamp(1rem,4vw,3rem);text-align:right}
-.sig-side .tag{font-family:var(--f-kn);font-size:.85rem;color:var(--terracotta);margin-bottom:1rem}
-.sig-side h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.05;letter-spacing:-.02em}
-.sig-side h3 .it{font-style:italic;color:var(--teal)}
-.sig-side p{margin-top:1.5rem;color:var(--muted);max-width:38ch;font-size:1rem;line-height:1.7}
-.sig-side.right p{margin-left:auto}
-
-.sig-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:280px;height:280px;display:flex;align-items:center;justify-content:center}
-.sig-center svg{width:100%;height:100%;overflow:visible}
-.sig-center .merge-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--f-display);font-style:italic;font-size:1.4rem;color:var(--ink);opacity:0;transition:opacity .5s}
-
-/* phase classes */
-.sig-pin[data-phase="0"] .sig-side.left{opacity:1;transform:translate(0,-50%)}
-.sig-pin[data-phase="0"] .sig-side.right{opacity:.15;transform:translate(20px,-50%)}
-.sig-pin[data-phase="1"] .sig-side.left{opacity:.15;transform:translate(-20px,-50%)}
-.sig-pin[data-phase="1"] .sig-side.right{opacity:1;transform:translate(0,-50%)}
-.sig-pin[data-phase="2"] .sig-side{opacity:.25}
-.sig-pin[data-phase="2"] .sig-center .merge-text{opacity:1}
+.svc-row{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;cursor:pointer;transition:padding .4s var(--ease)}
+.svc-row .rn{font-size:.72rem;letter-spacing:.15em;color:var(--muted);font-variant-numeric:tabular-nums}
+.svc-row .rt{font-family:var(--f-display);font-weight:400;font-size:clamp(1.3rem,2.4vw,1.9rem);letter-spacing:-.01em;line-height:1.1;color:var(--ink);transition:transform .4s var(--ease), color .4s}
+.svc-row .rgo{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid var(--line);border-radius:999px;transition:background .4s, border-color .4s, transform .4s var(--ease);color:var(--ink)}
+.svc-row::before{content:"";position:absolute;left:0;right:0;bottom:0;height:0;background:var(--ink);transition:height .5s var(--ease);z-index:0}
+.svc-row > *{position:relative;z-index:1}
+.svc-row:hover{padding-left:1.25rem;padding-right:1.25rem}
+.svc-row:hover::before{height:100%}
+.svc-row:hover .rt, .svc-row:hover .rn{color:var(--ivory)}
+.svc-row:hover .rgo{background:var(--terracotta);border-color:var(--terracotta);color:var(--paper);transform:rotate(-45deg)}
 
 @media(max-width:880px){
-  .sig-pin{height:auto;position:relative;padding:5rem 0}
-  .sig-side{position:static;width:100%;transform:none!important;opacity:1!important;text-align:left!important;margin-bottom:3rem}
-  .sig-side.right p{margin-left:0}
-  .sig-center{position:relative;margin:2rem auto;transform:none;left:auto;top:auto;width:180px;height:180px}
-  .sig-eyebrow,.sig-progress{position:static;transform:none;margin:0 auto 2rem;display:block;text-align:center}
+  .svc-shell{grid-template-columns:1fr}
+  .svc-cats{position:static;flex-direction:column;border-top:1px solid var(--line);margin-bottom:2rem}
+  .svc-cat.active .nm{transform:none}
+  .svc-panel{min-height:0}
+}
+
+/* ============= SIGNATURE — full-bleed diptych ============= */
+.signature{background:var(--ivory);position:relative}
+.sig-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:stretch}
+.sig-half{position:relative;width:50%;display:flex;align-items:center;padding:clamp(2rem,5vw,5rem);transition:width .8s var(--ease), padding .8s var(--ease);overflow:hidden}
+.sig-half.left{background:var(--terracotta);color:var(--paper)}
+.sig-half.right{background:var(--teal);color:var(--paper);justify-content:flex-end;text-align:right}
+.sig-half .content{max-width:34ch;position:relative;z-index:2;transition:opacity .6s var(--ease), transform .6s var(--ease)}
+.sig-half .tag{font-family:var(--f-kn);font-size:.95rem;opacity:.85;margin-bottom:1.25rem;letter-spacing:0}
+.sig-half h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.8rem,3.6vw,3.2rem);line-height:1.05;letter-spacing:-.02em}
+.sig-half h3 .it{font-style:italic;opacity:.9}
+.sig-half p{margin-top:1.5rem;font-size:1rem;line-height:1.7;opacity:.82}
+.sig-half .bg-glyph{position:absolute;font-family:var(--f-kn);font-size:clamp(14rem,30vw,28rem);line-height:.8;font-weight:600;opacity:.07;pointer-events:none;user-select:none;z-index:1}
+.sig-half.left .bg-glyph{right:-2rem;bottom:-3rem}
+.sig-half.right .bg-glyph{left:-2rem;top:-3rem}
+
+.sig-seam{position:absolute;top:0;bottom:0;left:50%;width:0;background:var(--ivory);transform:translateX(-50%);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;transition:width .9s var(--ease);overflow:hidden;z-index:3}
+.sig-seam .inner{opacity:0;transition:opacity .5s var(--ease) .2s;max-width:30ch;padding:0 2rem}
+.sig-seam .label{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.sig-seam h4{font-family:var(--f-display);font-weight:400;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.sig-seam h4 .it{font-style:italic;color:var(--terracotta)}
+.sig-seam .kn{font-family:var(--f-kn);font-size:clamp(4rem,9vw,7rem);color:var(--ink);line-height:1;font-weight:600;margin-bottom:1.5rem}
+
+.sig-eyebrow{position:absolute;top:2rem;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--paper);opacity:.7;z-index:4;background:var(--ink);padding:.5rem 1rem;border-radius:999px}
+.sig-progress{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);width:160px;height:1px;background:rgba(244,237,226,.3);z-index:4}
+.sig-progress .bar{height:100%;background:var(--paper);width:0}
+
+/* phases */
+.sig-pin[data-phase="0"] .sig-half.left{width:65%}
+.sig-pin[data-phase="0"] .sig-half.right{width:35%}
+.sig-pin[data-phase="0"] .sig-half.right .content{opacity:.5}
+.sig-pin[data-phase="1"] .sig-half.left{width:35%}
+.sig-pin[data-phase="1"] .sig-half.right{width:65%}
+.sig-pin[data-phase="1"] .sig-half.left .content{opacity:.5}
+.sig-pin[data-phase="2"] .sig-half{width:50%}
+.sig-pin[data-phase="2"] .sig-half .content{opacity:.35}
+.sig-pin[data-phase="2"] .sig-seam{width:min(560px, 60vw)}
+.sig-pin[data-phase="2"] .sig-seam .inner{opacity:1}
+
+@media(max-width:880px){
+  .sig-pin{position:static;height:auto;flex-direction:column}
+  .sig-half{width:100%!important;padding:4rem 1.5rem;text-align:left!important;justify-content:flex-start!important}
+  .sig-half .content{opacity:1!important;max-width:none}
+  .sig-half p{opacity:.85!important}
+  .sig-seam{position:static;width:100%!important;transform:none;padding:4rem 1.5rem;background:var(--paper)}
+  .sig-seam .inner{opacity:1!important;max-width:none;padding:0}
+  .sig-eyebrow,.sig-progress{display:none}
 }
 
 /* ============= ABOUT DR ============= */
@@ -366,71 +399,91 @@ footer{background:var(--ivory);padding:4rem clamp(1rem,4vw,3rem) 2rem;border-top
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="sec-head reveal">
-    <div class="sec-eyebrow">— Services</div>
+    <div class="sec-eyebrow">— Treatments index</div>
     <h2 class="sec-title">Ten treatments. <span class="it">Four chairs of expertise.</span></h2>
   </div>
 
-  <div class="svc-group reveal">
-    <h3><small>01 — Pediatric</small>Gentle for first visits</h3>
-    <div class="svc-list">
-      <div class="svc" data-cursor="View"><div class="num">P/01</div><h4>Pit & fissure sealant therapy</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="svc" data-cursor="View"><div class="num">P/02</div><h4>Teeth jewellery</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="svc" data-cursor="View"><div class="num">P/03</div><h4>Oral lesion screening</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+  <div class="svc-shell reveal">
+    <div class="svc-cats" role="tablist">
+      <button class="svc-cat active" data-cat="ped" role="tab"><span class="ix">01</span><span class="nm">Pediatric</span><span class="ct">03</span></button>
+      <button class="svc-cat" data-cat="cos" role="tab"><span class="ix">02</span><span class="nm">Cosmetic</span><span class="ct">03</span></button>
+      <button class="svc-cat" data-cat="res" role="tab"><span class="ix">03</span><span class="nm">Restorative</span><span class="ct">03</span></button>
+      <button class="svc-cat" data-cat="sur" role="tab"><span class="ix">04</span><span class="nm">Surgical</span><span class="ct">01</span></button>
     </div>
-  </div>
 
-  <div class="svc-group reveal">
-    <h3><small>02 — Cosmetic & Aesthetic</small>Precise for your smile</h3>
-    <div class="svc-list">
-      <div class="svc" data-cursor="View"><div class="num">C/01</div><h4>Laser depigmentation</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="svc" data-cursor="View"><div class="num">C/02</div><h4>Invisalign & teeth straightening</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="svc" data-cursor="View"><div class="num">C/03</div><h4>Orthodontic treatment</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-    </div>
-  </div>
+    <div class="svc-panel">
+      <div class="svc-stage">
+        <div class="svc-pane active" data-pane="ped">
+          <div class="lead">
+            <div class="tagline">Gentle enough that the first visit doesn't become the last.</div>
+            <div class="glyph">ಮಗು</div>
+          </div>
+          <div class="svc-row"><span class="rn">P / 01</span><span class="rt">Pit & fissure sealant therapy</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="svc-row"><span class="rn">P / 02</span><span class="rt">Teeth jewellery</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="svc-row"><span class="rn">P / 03</span><span class="rt">Oral lesion screening</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </div>
 
-  <div class="svc-group reveal">
-    <h3><small>03 — Restorative</small>Built to last</h3>
-    <div class="svc-list">
-      <div class="svc" data-cursor="View"><div class="num">R/01</div><h4>Crowns & bridges</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="svc" data-cursor="View"><div class="num">R/02</div><h4>Acrylic partial dentures</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-      <div class="svc" data-cursor="View"><div class="num">R/03</div><h4>Dental implants</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-    </div>
-  </div>
+        <div class="svc-pane" data-pane="cos">
+          <div class="lead">
+            <div class="tagline">Precise work, quietly done, on the smile you actually live with.</div>
+            <div class="glyph">ನಗು</div>
+          </div>
+          <div class="svc-row"><span class="rn">C / 01</span><span class="rt">Laser depigmentation</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="svc-row"><span class="rn">C / 02</span><span class="rt">Invisalign & teeth straightening</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="svc-row"><span class="rn">C / 03</span><span class="rt">Orthodontic treatment</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </div>
 
-  <div class="svc-group reveal">
-    <h3><small>04 — Surgical</small>When it can't wait</h3>
-    <div class="svc-list">
-      <div class="svc" data-cursor="View"><div class="num">S/01</div><h4>Wisdom tooth extraction</h4><div class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+        <div class="svc-pane" data-pane="res">
+          <div class="lead">
+            <div class="tagline">Built to last — explained before, costed before.</div>
+            <div class="glyph">ಬಾಳಿಕೆ</div>
+          </div>
+          <div class="svc-row"><span class="rn">R / 01</span><span class="rt">Crowns & bridges</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="svc-row"><span class="rn">R / 02</span><span class="rt">Acrylic partial dentures</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="svc-row"><span class="rn">R / 03</span><span class="rt">Dental implants</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </div>
+
+        <div class="svc-pane" data-pane="sur">
+          <div class="lead">
+            <div class="tagline">When it can't wait — handled the same afternoon, often.</div>
+            <div class="glyph">ತಕ್ಷಣ</div>
+          </div>
+          <div class="svc-row"><span class="rn">S / 01</span><span class="rt">Wisdom tooth extraction</span><span class="rgo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SIGNATURE: Two kinds of patients -->
+<!-- SIGNATURE: full-bleed diptych -->
 <section class="signature" id="story" style="padding:0">
-  <!-- 300vh of scroll to drive 3 phases -->
-  <div style="height:300vh;position:relative">
+  <div style="height:280vh;position:relative">
     <div class="sig-pin" id="sigPin" data-phase="0">
-      <div class="sig-eyebrow">— Our quiet specialty</div>
+      <div class="sig-eyebrow">Our quiet specialty</div>
 
-      <div class="sig-stage">
-        <div class="sig-side left">
+      <div class="sig-half left">
+        <span class="bg-glyph">ಮಗು</span>
+        <div class="content">
           <div class="tag">ಮಗುವಿಗೆ — for the child</div>
           <h3>The first visit a <span class="it">child remembers fondly.</span></h3>
-          <p>Dr. Jayakumar's MDS is in Pedodontics — pediatric dentistry. That means a clinic built around the small things: a slower introduction to the chair, names for every instrument, parents in the room.</p>
+          <p>Dr. Jayakumar's MDS is in Pedodontics — pediatric dentistry. A slower introduction to the chair, names for every instrument, parents in the room. Most kids leave asking when they come back.</p>
         </div>
+      </div>
 
-        <div class="sig-center" aria-hidden="true">
-          <svg viewBox="0 0 200 200">
-            <circle cx="70" cy="100" r="55" fill="none" stroke="#C8553D" stroke-width="1.5" opacity=".8"/>
-            <circle cx="130" cy="100" r="55" fill="none" stroke="#0F4C4A" stroke-width="1.5" opacity=".8"/>
-          </svg>
-          <div class="merge-text">One clinic.<br>Both, completely.</div>
-        </div>
-
-        <div class="sig-side right">
+      <div class="sig-half right">
+        <span class="bg-glyph">ನಗು</span>
+        <div class="content">
           <div class="tag">ನಗುವಿಗೆ — for the smile</div>
           <h3>The smile makeover an <span class="it">adult finally books.</span></h3>
-          <p>Three decades of cosmetic & restorative work — Invisalign, laser depigmentation, implants, crowns. A patient described their gap-closure here as affordable, clearly explained, and the best in Rajajinagar.</p>
+          <p>Three decades of cosmetic & restorative work — Invisalign, laser depigmentation, implants, crowns. Affordable, clearly explained, and described by one patient as the best in Rajajinagar.</p>
+        </div>
+      </div>
+
+      <div class="sig-seam">
+        <div class="inner">
+          <div class="kn">ಒಂದು</div>
+          <div class="label">One clinic · for both</div>
+          <h4>Not two practices sharing a roof. <span class="it">One dentist, fluent in both rooms.</span></h4>
         </div>
       </div>
 
@@ -671,6 +724,20 @@ footer{background:var(--ivory);padding:4rem clamp(1rem,4vw,3rem) 2rem;border-top
     window.addEventListener('scroll', onScroll, {passive:true});
     onScroll();
   }
+
+  /* -------- Services category tabs -------- */
+  const cats = document.querySelectorAll('.svc-cat');
+  const panes = document.querySelectorAll('.svc-pane');
+  cats.forEach(btn=>{
+    const activate = ()=>{
+      const key = btn.dataset.cat;
+      cats.forEach(b=>b.classList.toggle('active', b===btn));
+      panes.forEach(p=>p.classList.toggle('active', p.dataset.pane===key));
+    };
+    btn.addEventListener('click', activate);
+    btn.addEventListener('mouseenter', activate);
+  });
+
 
   /* -------- Smooth scroll for anchor links (with offset for fixed nav) -------- */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
