@@ -725,6 +725,20 @@ footer{background:var(--ivory);padding:4rem clamp(1rem,4vw,3rem) 2rem;border-top
     onScroll();
   }
 
+  /* -------- Services category tabs -------- */
+  const cats = document.querySelectorAll('.svc-cat');
+  const panes = document.querySelectorAll('.svc-pane');
+  cats.forEach(btn=>{
+    const activate = ()=>{
+      const key = btn.dataset.cat;
+      cats.forEach(b=>b.classList.toggle('active', b===btn));
+      panes.forEach(p=>p.classList.toggle('active', p.dataset.pane===key));
+    };
+    btn.addEventListener('click', activate);
+    btn.addEventListener('mouseenter', activate);
+  });
+
+
   /* -------- Smooth scroll for anchor links (with offset for fixed nav) -------- */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', e=>{
