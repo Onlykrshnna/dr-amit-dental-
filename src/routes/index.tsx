@@ -4,10 +4,10 @@ import { useEffect } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Shankari Dental Health Centre — Dr. H. L. Jayakumar | Rajajinagar, Bengaluru" },
-      { name: "description", content: "Pediatric & cosmetic dentistry in Rajajinagar, Bengaluru. Dr. H. L. Jayakumar, BDS, MDS (Pedodontics) — 30+ years, 5.0★ from 242 patients." },
-      { property: "og:title", content: "Shankari Dental Health Centre — Rajajinagar, Bengaluru" },
-      { property: "og:description", content: "Gentle for your child. Precise for your smile. 30+ years of trusted dental care led by Dr. H. L. Jayakumar." },
+      { title: "Amaya Dental Clinic — Best Dental Clinic in Sahakar Nagar, Bengaluru" },
+      { name: "description", content: "Expert dental care in Sahakar Nagar, Bengaluru. 5.0★ from 144 patients. Invisalign, implants, veneers, teeth whitening, and preventive care." },
+      { property: "og:title", content: "Amaya Dental Clinic — Sahakar Nagar, Bengaluru" },
+      { property: "og:description", content: "Healthy teeth and gums start with the right habits. Visit Amaya Dental for advanced, painless, and personalized dental treatments." },
     ],
   }),
   component: Index,
